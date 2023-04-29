@@ -1,0 +1,8 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+.inner{
+    transform: translate(5%, 5%);
+}
