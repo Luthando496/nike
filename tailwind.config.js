@@ -7,7 +7,7 @@ export default {
   darkMode: 'class',
   theme: {
     fontFamily: {
-      display: ['Open Sans', 'sans-serif'],
+      roboto: ['Roboto', 'sans-serif'],
       body: ['Open Sans', 'sans-serif'],
     },
   },

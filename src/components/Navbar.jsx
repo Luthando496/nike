@@ -4,7 +4,7 @@ import {FaCartArrowDown,FaTimes,FaHamburger, FaAndroid} from 'react-icons/fa'
 const Navbar = () => {
     const [show,setShow] = useState(false)
   return (
-    <nav className='w-full bg-white py-4 relative'>
+    <nav className='w-full bg-white py-4 relative shadow-xl'>
     <div className="w-[90%] mx-auto flex justify-between">
     <h1 className="text-4xl font-light text-sky-700 tracking-[2px]">NIKE</h1>
 
