@@ -1,12 +1,14 @@
 import { useState } from 'react'
 import Navbar from './components/Navbar'
 import Home from './pages/Home'
+import Product from './pages/Product'
 import Footer from './components/Footer'
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
 // import 'swiper/core/transition/transitionEmit'
+import {Routes,Route} from 'react-router-dom'
 
 
 function App() {
@@ -15,7 +17,10 @@ function App() {
   return (
     <>
       <Navbar />
-      <Home />
+      <Routes >
+        <Route path="/" element={<Home />} />
+        <Route path="/product/" element={<Product />} />
+      </Routes>
       <Footer />
     </>
   )

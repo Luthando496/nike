@@ -3,7 +3,12 @@ import { Navigation, Pagination, Scrollbar, A11y } from 'swiper';
 import {FaArrowCircleLeft} from 'react-icons/fa'
 import { Swiper, SwiperSlide } from 'swiper/react';
 
-const data = ['https://images.unsplash.com/photo-1629941180894-5f9d3973d847?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80','https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=464&q=80','https://images.unsplash.com/photo-1542291026-7eec264c27ff?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80']
+import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
+import { Carousel } from "react-responsive-carousel";
+import {Link} from 'react-router-dom'
+import { BiArrowBack } from "react-icons/bi";
+
+
 
 
 const Home = () => {
@@ -13,6 +18,82 @@ const Home = () => {
    
   return (
     <>
+
+        <div className="relative text-white text-[20px] w-full max-w-[1360px] mx-auto">
+            <Carousel
+                autoPlay={true}
+                infiniteLoop={true}
+                showThumbs={false}
+                showIndicators={false}
+                axis='vertical'
+                showStatus={false}
+                renderArrowPrev={(clickHandler, hasPrev) => (
+                    <div
+                        onClick={clickHandler}
+                        className="absolute left-0 md:right-[51px] bottom-0 w-[30px] md:w-[50px] h-[30px] md:h-[50px] bg-amber-600 z-10 flex items-center justify-center cursor-pointer hover:opacity-90"
+                    >
+                        <BiArrowBack className="text-sm md:text-lg" />
+                    </div>
+                )}
+                renderArrowNext={(clickHandler, hasNext) => (
+                    <div
+                        onClick={clickHandler}
+                        className="absolute left-[50px] bottom-0 w-[30px] md:w-[50px] h-[30px] md:h-[50px] bg-amber-500 z-10 flex items-center justify-center cursor-pointer hover:opacity-90"
+                    >
+                        <BiArrowBack className="rotate-180 text-sm md:text-lg" />
+                    </div>
+                )}
+            >
+                <div className='h-[80vh]'>
+                    <img
+                        src="/assets/8ff56df7a7d0a641d31c7a0124c2213c.jpg"
+                        className="aspect-[16/10] h-full md:aspect-auto object-cover"
+                    />
+                    <div className="absolute top-0 left-0 w-full h-full bg-black/40"></div>
+                    <div className="px-[15px] md:px-[40px] py-[10px] md:py-[25px] font-oswald bg-black absolute bottom-[25px] md:bottom-[75px] left-0 text-white/[0.9] text-[15px] md:text-[30px] uppercase font-medium cursor-pointer hover:opacity-90">
+                        Shop now
+                    </div>
+                </div>
+
+                <div className='h-[80vh]'>
+                    <img
+                        src="/assets/6d270e6b382b6d2ada43c3fac63df494.jpg"
+                        className="aspect-[16/10] h-full md:aspect-auto object-cover"
+                    />
+                    <div className="absolute top-0 left-0 w-full h-full bg-black/70"></div>
+
+
+                    <div className="px-[15px] md:px-[40px] py-[10px] md:py-[25px] font-oswald bg-white absolute bottom-[25px] md:bottom-[75px] right-0 text-black/[0.9] text-[15px] md:text-[30px] uppercase font-medium cursor-pointer hover:opacity-90">
+                        Shop now
+                    </div>
+                </div>
+
+                <div className='h-[80vh]'>
+                    <img
+                        src="https://i.pinimg.com/564x/9c/35/b4/9c35b48fa52d8d8a9660db6a722f112d.jpg"
+                        className="aspect-[16/10] h-full md:aspect-auto object-cover"
+                    />
+                    <div className="absolute top-0 left-0 w-full h-full bg-black/70"></div>
+
+                    <div className="px-[15px] md:px-[40px] py-[10px] md:py-[25px] font-oswald bg-black absolute bottom-[25px] md:bottom-[75px] left-0 text-white/[0.9] text-[15px] md:text-[30px] uppercase font-medium cursor-pointer hover:opacity-90">
+                        Shop now
+                    </div>
+                </div>
+                <div className='h-[80vh]'>
+                    <img
+                        src="/assets/c4901ebcb2c39a0166317e0ca06db1a1.jpg"
+                        className="aspect-[16/10] h-full md:aspect-auto object-fill"
+                    />
+                    <div className="absolute top-0 left-0 w-full h-full bg-black/70"></div>
+
+                    <div className="px-[15px] md:px-[40px] py-[10px] md:py-[25px] font-oswald bg-white absolute bottom-[25px] md:bottom-[75px] left-0 text-black/[0.9] text-[15px] md:text-[30px] uppercase font-medium cursor-pointer hover:opacity-90">
+                        Shop now
+                    </div>
+                </div>
+            </Carousel>
+        </div>
+
+
         <section className="w-full mt-[9rem] mb-20">
 
         <div className="w-[80%] mx-auto">
@@ -24,7 +105,7 @@ const Home = () => {
 
         <div className="w-full px-8 md:px-14 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mb-8 items-start gap-4 mt-12 gap-y-20">
             {/* card */}
-            <div className="card w-full hover:-translate-y-8 duration-300 cursor-pointer mt-0">
+            <Link  to='/product' className="card w-full hover:-translate-y-8 duration-300 cursor-pointer mt-0">
                 <div className="img w-full h-[386px]">
                     <img src="https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=464&q=80" alt="image-store" className="w-full h-full object-cover" />
                 </div>
@@ -35,9 +116,9 @@ const Home = () => {
                     <span className="text-xl font-bold text-green-300">48.8% off</span>
                 </div>
                 </div>
-            </div>
+            </Link>
             {/*  */}
-            <div className="card w-full hover:-translate-y-8 duration-300 cursor-pointer mt-0">
+            <Link  to='/product' className="card w-full hover:-translate-y-8 duration-300 cursor-pointer mt-0">
                 <div className="img w-full h-[386px]">
                     <img src="https://images.unsplash.com/photo-1515955656352-a1fa3ffcd111?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80" alt="image-store" className="w-full h-full object-cover" />
                 </div>
@@ -48,9 +129,9 @@ const Home = () => {
                     <span className="text-xl font-bold text-green-300">48.8% off</span>
                 </div>
                 </div>
-            </div>
+            </Link>
             {/*  */}
-            <div className="card w-full hover:-translate-y-8 duration-300 cursor-pointer mt-0">
+            <Link  to='/product' className="card w-full hover:-translate-y-8 duration-300 cursor-pointer mt-0">
                 <div className="img w-full h-[386px]">
                     <img src="/assets/47c2a92432e8b6f0fd916f4604b74f8a.jpg" alt="image-store" className="w-full h-full object-cover" />
                 </div>
@@ -61,10 +142,10 @@ const Home = () => {
                     <span className="text-xl font-bold text-green-300">48.8% off</span>
                 </div>
                 </div>
-            </div>
+            </Link>
             {/*  */}
               {/* card */}
-              <div className="card w-full hover:-translate-y-8 duration-300 cursor-pointer">
+              <Link  to='/product' className="card w-full hover:-translate-y-8 duration-300 cursor-pointer">
                 <div className="img w-full h-[386px]">
                     <img src="https://images.unsplash.com/photo-1605348532760-6753d2c43329?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80" alt="image-store" className="w-full h-full object-cover" />
                 </div>
@@ -75,9 +156,9 @@ const Home = () => {
                     <span className="text-xl font-bold text-green-300">48.8% off</span>
                 </div>
                 </div>
-            </div>
+            </Link>
             {/*  */}
-            <div className="card w-full hover:-translate-y-8 duration-300 cursor-pointer">
+            <Link  to='/product' className="card w-full hover:-translate-y-8 duration-300 cursor-pointer">
                 <div className="img w-full h-[386px]">
                     <img src="/assets/12d04519377768ce180b5a022aa50dc4.jpg" alt="image-store" className="w-full h-full object-cover" />
                 </div>
@@ -88,9 +169,9 @@ const Home = () => {
                     <span className="text-xl font-bold text-green-300">48.8% off</span>
                 </div>
                 </div>
-            </div>
+            </Link>
             {/*  */}
-            <div className="card w-full hover:-translate-y-8 duration-300 cursor-pointer">
+            <Link  to='/product' className="card w-full hover:-translate-y-8 duration-300 cursor-pointer">
                 <div className="img w-full h-[386px]">
                     <img src="https://images.unsplash.com/photo-1575537302964-96cd47c06b1b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80" alt="image-store" className="w-full h-full object-cover" />
                 </div>
@@ -101,7 +182,7 @@ const Home = () => {
                     <span className="text-xl font-bold text-green-300">48.8% off</span>
                 </div>
                 </div>
-            </div>
+            </Link>
             {/*  */}
 
             
@@ -155,7 +236,7 @@ const Home = () => {
 
         </section>
 
-        <section className="w-full grid grid-cols-1 lg:grid-cols-2 collections h-[80vh]">
+        <section className="w-full my-10 grid grid-cols-1 lg:grid-cols-2 collections h-[80vh]">
 
         <div className="w-full border group border-black relative overflow-hidden  h-[50vh] lg:h-full">
             <img src="/assets/b21944ad342970d3b1ffd5bed39f4dc6.jpg" alt="man" className="w-full group-hover:scale-150 duration-300 h-full object-cover" />

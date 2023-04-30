@@ -8,7 +8,7 @@ export default {
   theme: {
     fontFamily: {
       roboto: ['Roboto', 'sans-serif'],
-      body: ['Open Sans', 'sans-serif'],
+      rale: ['Raleway', 'sans-serif'],
     },
   },
   plugins: [],
