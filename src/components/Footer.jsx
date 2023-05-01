@@ -87,7 +87,7 @@ const Footer = () => {
 
     </div>
     <div className="flex flex-col gap-6 lg:flex-row justify-between mt-8 pb-4">
-        <span className="text-white">© 2023 Nike, Inc. All Rights Reserved</span>
+        <span className="text-white">© 2023 Fashion Frenzy, Inc. All Rights Reserved</span>
         <ul className="flex gap-10">
             <li>
                 <span className="text-white">Guides</span>

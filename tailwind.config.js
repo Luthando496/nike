@@ -9,6 +9,7 @@ export default {
     fontFamily: {
       roboto: ['Roboto', 'sans-serif'],
       rale: ['Raleway', 'sans-serif'],
+      play: ['Playfair Display', 'serif'],
     },
   },
   plugins: [],

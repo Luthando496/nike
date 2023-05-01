@@ -9,6 +9,7 @@ import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
 // import 'swiper/core/transition/transitionEmit'
 import {Routes,Route} from 'react-router-dom'
+import Cart from './pages/Cart'
 
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
       <Navbar />
       <Routes >
         <Route path="/" element={<Home />} />
+        <Route path="/cart" element={<Cart />} />
         <Route path="/product/" element={<Product />} />
       </Routes>
       <Footer />
