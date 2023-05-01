@@ -1,12 +1,17 @@
-import React from 'react'
+import React,{ useState,useEffect} from 'react'
 import {AiOutlineHeart} from 'react-icons/ai'
-import {Link} from 'react-router-dom'
+import {Link,useParams} from 'react-router-dom'
 import Carousel from "react-multi-carousel";
 import {Carousel as Slider} from 'react-responsive-carousel'
 import "react-multi-carousel/lib/styles.css";
+import "react-responsive-carousel/lib/styles/carousel.min.css"
+import axios from 'axios'
 
 
 const Product = () => {
+
+    const [products, setProducts] = useState(null)
+    const id = useParams().id
 
     const images = [{url:'/assets/12d04519377768ce180b5a022aa50dc4.jpg',id:1,name:'shoe'},{url:'/assets/050b03e9b285b6a0991074e487b1c2dd.jpg',id:2,name:'shoe'},{url:'/assets/abb8d41138e2d34b20df252a6929e0e4.jpg',id:3,name:'shoe'},{url:'/assets/3faa5724c172327ccccdf9982dd27272.jpg',id:4,name:'shoe'}]
 
@@ -30,30 +35,53 @@ const Product = () => {
         }
       };
 
+
+      const fetchProducts = async() =>{
+        try{
+    
+          const {data} = await axios.get(`${JSON.stringify(import.meta.env.VITE_REACT_API).replace(/"/g, '')}/products/${id}?populate=*`,{
+            headers:{
+              Authorization:`bearer ${JSON.stringify(import.meta.env.VITE_REACT_APP_API_TOKEN).replace(/"/g, '')}`
+            }
+          })
+    
+    
+          console.log(data?.data)
+          setProducts(data?.data)
+          
+        }catch(error){
+          console.log(error)
+        }
+      }
+    
+      useEffect(()=>{
+        fetchProducts()
+      },[])
+    
+
   return (
     <>
     <section className="py-24 w-full">
         <div className="w-full px-16 flex flex-col lg:flex-row gap-8">
             {/* left */}
-            <div className="text-white text-[20px] w-full max-w-full mx-auto ">
+            <div className="text-white text-[20px] w-full max-w-[1360px] mx-auto sticky top-[50px]">
             <Slider
                 infiniteLoop={true}
                 showIndicators={false}
                 showStatus={false}
                 thumbWidth={60}
-                // axis='vertical'
-                className="w-full productCarousel"
+                className="productCarousel"
             >
-                {images?.map((img) => (
+                {products?.attributes?.images?.data?.map((img) => (
                     <img
                         key={img.id}
-                        src={img.url}
+                        src={JSON.stringify(import.meta.env.VITE_REACT_UPLOAD).replace(/"/g, '').replace('api','')+img?.attributes?.url}
                         alt={img.name}
-                        // className='w-full object-cover h-full'
                     />
                 ))}
+
             </Slider>
-            </div>
+        </div>
 
             {/* right */}
             <div className="w-full px-4 py-4 font-roboto ">
