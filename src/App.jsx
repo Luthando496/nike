@@ -7,6 +7,7 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
+import {Vortex} from 'react-loader-spinner'
 // import 'swiper/core/transition/transitionEmit'
 import {Routes,Route} from 'react-router-dom'
 const Cart = lazy(()=>import('./pages/Cart'))
@@ -15,6 +16,7 @@ import {collection, getDocs } from 'firebase/firestore';
 import { db } from './firebase'
 import {useDispatch} from 'react-redux'
 import {getProducts} from './store/actions/productActions.js'
+
 
 
 function App() {
@@ -42,7 +44,15 @@ function App() {
 
   return (
     <>
-    <Suspense fallback={<div>Loading...</div>}>
+    <Suspense fallback={<div className='w-full h-[60vh] flex justify-center items-center'><Vortex visible={true}
+        height="400"
+        width="400"
+
+        ariaLabel="vortex-loading"
+        wrapperStyle={{}}
+        wrapperClass="vortex-wrapper"
+        colors={['black', 'pink', 'blue', 'yellow', 'orange', 'purple']}
+        /></div>}>
 
       <Navbar />
       <Routes >
