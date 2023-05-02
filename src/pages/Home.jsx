@@ -8,13 +8,14 @@ import { Carousel } from "react-responsive-carousel";
 import {Link} from 'react-router-dom'
 import { BiArrowBack } from "react-icons/bi";
 import Card from '../components/Card';
+import {useSelector} from 'react-redux'
 
 
 
-
-const Home = ({data,products}) => {
+const Home = ({cate}) => {
 
     const [current,setCurrent] = useState(2)
+    const {products} = useSelector(state => state.prod)
 
    
   return (
@@ -106,7 +107,7 @@ const Home = ({data,products}) => {
 
         <div className="w-full px-8 md:px-14 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mb-8 items-start gap-4 mt-12 gap-y-20">
         {products?.map((product) => (
-            <Card key={product.id} product={product} />
+            <Card product={product}  />
         ))}
 
 
@@ -164,26 +165,25 @@ const Home = ({data,products}) => {
         <section className="w-full my-10 grid grid-cols-1 lg:grid-cols-2 collections h-[80vh]">
 
         <div className="w-full border group border-black relative overflow-hidden  h-[50vh] lg:h-full">
-             {/* <h1 className="text-5c">{JSON.stringify(import.meta.env.VITE_REACT_API).replace(/"/g, '').replace('api','') +data[0]?.attributes?.img?.data?.attributes?.name}</h1> */}
-            <img src={JSON.stringify(import.meta.env.VITE_REACT_UPLOAD).replace(/"/g, '').replace('api','') +data[0]?.attributes?.img?.data?.attributes?.url} alt="man" className="w-full group-hover:scale-150 duration-300 h-full object-cover" />
+            <img src={cate[0]?.categories?.man} alt="man" className="w-full group-hover:scale-150 duration-300 h-full object-cover" />
             <div className="absolute top-0 left-0 w-full h-full bg-amber-400/20"></div>
             <div className="absolute top-0 left-0 inner w-[90%] h-[90%] mx-auto border-white border flex items-center justify-center">
             <div className="space-y-8 text-center">
-                    <h1 className="text-4xl font-semibold font-roboto tracking-[3px] text-black uppercase">{data[0]?.attributes?.title}</h1>
+                    <h1 className="text-4xl font-semibold font-roboto tracking-[3px] text-black uppercase">Man</h1>
 
                     <button className="px-10 py-4 border uppercase border-black text-black hover:border-none hover:bg-black hover:text-white duration-500">Shop collection</button>
 
             </div>
-            </div>
-        </div>
+            </div> 
+        </div> 
 
 
         <div className="w-full relative group overflow-hidden  border border-black h-[50vh] lg:h-full">
-            <img src={JSON.stringify(import.meta.env.VITE_REACT_UPLOAD).replace(/"/g, '').replace('api','') +data[1]?.attributes?.img?.data?.attributes?.url} alt="man" className="w-full group-hover:scale-150 duration-300 h-full object-cover " />
+            <img src={cate[0]?.categories?.woman} alt="man" className="w-full group-hover:scale-150 duration-300 h-full object-cover " />
             <div className="absolute top-0 left-0 w-full h-full bg-amber-400/20"></div>
             <div className="absolute top-0 left-0 inner w-[90%] h-[90%] mx-auto border-white border flex items-center justify-center">
             <div className="space-y-8 text-center">
-                    <h1 className="text-4xl font-semibold font-roboto tracking-[3px] text-red-700 uppercase">{data[0]?.attributes?.title}</h1>
+                    <h1 className="text-4xl font-semibold font-roboto tracking-[3px] text-red-700 uppercase">Women</h1>
 
                     <button className="px-10 py-4 border uppercase border-black text-black hover:border-none hover:bg-sky-700 hover:text-white duration-500">Shop collection</button>
 
