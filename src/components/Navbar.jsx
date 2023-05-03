@@ -6,6 +6,7 @@ import {IoIosArrowDown,IoIosArrowUp} from 'react-icons/io'
 import {BsCart3} from 'react-icons/bs'
 import {Link} from 'react-router-dom'
 import { useSelector } from 'react-redux'
+import {useNavigate} from 'react-router-dom'
 
 
 
@@ -14,8 +15,18 @@ import { useSelector } from 'react-redux'
 const Navbar = () => {
     const [show,setShow] = useState(false);
     const [cate,setCate]= useState(false);
+    const navigate = useNavigate();
     const [cart,setCart]= useState(false);
     const {products} = useSelector(state => state.cart);
+
+    const ClickAbout=()=>{
+        navigate('/about')
+        setShow(!show)
+    }
+    const ClickHome=()=>{
+        navigate('/')
+        setShow(!show)
+    }
 
   return (
     <nav className='w-full bg-white py-4 relative shadow-xl'>
@@ -91,14 +102,14 @@ const Navbar = () => {
 
     <div className={`md:hidden z-50 absolute top-[4.5rem] left-0 w-full h-screen  duration-700 bg-white ${show ? 'translate-x-0' : '-translate-x-[100%]'}`}>
     <ul className="flex flex-col">
-        <li className="pl-8  border py-4">
-            <Link to="/" className="text-xl text-black font-semibold capitalize">home</Link>
+        <li onClink={()=> setShow(!show)} className="pl-8  border py-4">
+        <button onClick={ClickHome}  className="text-xl text-black font-semibold capitalize">home</button>
         </li>
         {/* <li className=" py-4 ">
             <a href="#" className="text-xl  pl-8 text-black font-semibold capitalize">Categories</a>
         </li> */}
-        <li className="pl-8 py-4 border">
-            <Link to="/about" className="text-xl text-black font-semibold capitalize">about</Link>
+        <li onClink={()=> setShow(!show)} className="pl-8 py-4 border">
+            <button onClick={ClickAbout}  className="text-xl text-black font-semibold capitalize">about</button>
         </li>
     </ul>
 
