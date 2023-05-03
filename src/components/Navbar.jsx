@@ -18,14 +18,17 @@ const Navbar = () => {
   return (
     <nav className='w-full bg-white py-4 relative shadow-xl'>
     <div className="w-[90%] mx-auto flex justify-between">
+
+    <Link to='/'>
     <SiNike  className="text-[4rem] cursor-pointer font-bold text-amber-700 tracking-[2px]" />
+    </Link>
 
     <ul className="hidden gap-8 items-center md:flex">
         <li>
             <Link to="/" className="text-amber-800 text-xl capitalize">Home</Link>
         </li>
         <li>
-            <a href="#" className="text-amber-800 text-xl capitalize">About</a>
+            <Link to="/about" className="text-amber-800 text-xl capitalize">About</Link>
         </li>
         <li className='relative cate cursor-pointer'  onClick={()=> setCate(!cate)}>
             <span className="text-amber-800 text-xl capitalize flex items-center gap-6">Categories
@@ -33,13 +36,13 @@ const Navbar = () => {
 
            {cate && <ul className="w-[300px] z-50 cate-show bg-black shadow-2xl rounded-xl absolute top-7 flex flex-col">
             <li className='hover:bg-white group px-2 rounded-lg text-center py-5 duration-300'>
-                <Link to="/" className="group-hover:text-black duration-500  text-white text-md text-xl  tracking-[2px]   capitalize">Men</Link>
+                <Link to="/category/men" className="group-hover:text-black duration-500  text-white text-md text-xl  tracking-[2px]   capitalize">Men</Link>
             </li>
             <li className='hover:bg-white group px-2 rounded-lg text-center py-5 duration-300'>
-                <Link to="/" className="group-hover:text-black  duration-500  text-white text-xl  tracking-[2px] text-md  capitalize">Women</Link>
+                <Link to="/women" className="group-hover:text-black  duration-500  text-white text-xl  tracking-[2px] text-md  capitalize">Women</Link>
             </li>
             <li className='hover:bg-white group px-2 rounded-lg text-center py-5 duration-300'>
-                <Link to="/" className="group-hover:text-black duration-500  text-white text-xl  tracking-[2px] text-md  capitalize">Sneakers</Link>
+                <Link to="/category/sneakers" className="group-hover:text-black duration-500  text-white text-xl  tracking-[2px] text-md  capitalize">Sneakers</Link>
             </li>
 
             </ul>}

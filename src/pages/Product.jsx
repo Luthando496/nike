@@ -77,7 +77,7 @@ const Product = () => {
                 <p className="py-6 text-black uppercase text-xl">{product?.category}</p>
                 <div className="flex justify-between ">
                     <p className="text-xl text-gray-700">Price : ZAR {product?.price}</p>
-                    <span className="text-xl text-green-500">32.80% off</span>
+                    <span className="text-xl text-green-500">{product?.percent}% off</span>
                 </div>
                 <p className="text-black/70 pt-2 text-md">incl. of taxes</p>
                 <p className="text-black/70 pb-8 text-md">(Also includes all applicable duties)</p>
