@@ -5,7 +5,7 @@ const About = () => {
   return (
     <>
         <section className="pt-32 w-full">
-            <h1 className="text-5xl text-black font-play uppercase text-center">About Us</h1>
+            <h1 className="text-5xl text-black/70 font-play uppercase text-center">About Us</h1>
             <div className="w-[5rem]  bg-black  h-[2px] my-2 mx-auto"></div>
 
             <p className="py-24 w-full px-4 lg:px-24">
@@ -29,7 +29,7 @@ const About = () => {
             className="w-full py-14">
 
                 <h1 className="text-black font-play text-5xl">Our Goal</h1>
-                <p className="text-black font-castoro text-xl py-8">
+                <p className="text-black/50 font-castoro text-xl py-8">
                 We are a team of athletes who are passionate about creating the world's most exciting and exciting athlete.
                 </p>
             </motion.dev>

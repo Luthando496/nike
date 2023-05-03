@@ -26,10 +26,7 @@ import 'react-toastify/dist/ReactToastify.css';
 
 
 function App() {
-  const [count, setCount] = useState(0)
-  const [products, setProducts] = useState(null)
   const dispatch = useDispatch()
-  const [cate, setCategory] = useState(null)
 
   // console.log(JSON.stringify(import.meta.env.VITE_REACT_APP_API_TOKEN).replace(/"/g, ''))
 
@@ -56,7 +53,7 @@ function App() {
       position="top-center"
       autoClose={2000} 
       />
-    <Suspense fallback={<div className='w-full h-[60vh] flex justify-center items-center'><Vortex visible={true}
+    <Suspense fallback={<div className='w-full mt-24 h-[60vh] flex justify-center items-center'><Vortex visible={true}
         height="400"
         width="400"
         ariaLabel="vortex-loading"
