@@ -16,7 +16,8 @@ import axios from 'axios'
 import {collection, getDocs } from 'firebase/firestore';
 import { db } from './firebase'
 import {useDispatch} from 'react-redux'
-import {getProducts} from './store/actions/productActions.js'
+import {getProducts,getCategory} from './store/actions/productActions.js'
+
 
 
 
@@ -25,16 +26,18 @@ function App() {
   const [products, setProducts] = useState(null)
   const dispatch = useDispatch()
   const [cate, setCategory] = useState(null)
+
   // console.log(JSON.stringify(import.meta.env.VITE_REACT_APP_API_TOKEN).replace(/"/g, ''))
 
- 
 
  const fetchCategory =  async()=> {
   const citiesCol = collection(db, 'category');
   const citySnapshot = await getDocs(citiesCol);
 
-   console.log(citySnapshot.docs.map(doc => doc.data()))
-   setCategory(citySnapshot.docs.map(doc => doc.data()))
+  
+  console.log(citySnapshot.docs.map(doc => doc.data()))
+  dispatch(getCategory(citySnapshot.docs.map(doc => doc.data())))
+  //  setCategory()
 
 }
 
@@ -57,7 +60,7 @@ function App() {
 
       <Navbar />
       <Routes >
-        <Route path="/" element={<Home cate={cate && cate}  />} />
+        <Route path="/" element={<Home   />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/category/:id" element={<Category />} />
         <Route path="/product/:id" element={<Product />} />

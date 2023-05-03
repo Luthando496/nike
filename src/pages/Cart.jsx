@@ -33,8 +33,8 @@ const Cart = () => {
             {/* left */}
             <div className="col-span-1 lg:col-span-2  self-start   w-full py-3">
             {/* card start*/}
-            {products?.map(product => (
-            <div className="grid grid-cols-4 border-b border-b-gray-400 my-8 md:px-8 pb-6">
+            {products?.map((product,index) => (
+            <div  key={index} className="grid grid-cols-4 border-b border-b-gray-400 my-8 md:px-8 pb-6">
                 {/* left image */}
                 <div className="col-span-1">
                 <img src={product.image} alt={product.title} className="w-[90px] md:w-[120px] h-[90px] lg:h-[120px]" />

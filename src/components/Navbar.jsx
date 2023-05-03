@@ -62,8 +62,8 @@ const Navbar = () => {
             {cart && <div className="absolute z-50 top-14 border -left-[12rem] space-y-2 bg-white border-black p-2 ">
 
             {/* card */}
-            {products?.map(product => (
-            <div className="grid border-b border-red-900  grid-cols-3 gap-2 items-center pb-6">
+            {products?.map((product,index) => (
+            <div key={index} className="grid border-b border-red-900  grid-cols-3 gap-2 items-center pb-6">
             <div className="img w-full">
                 <img src={product.image} alt={product.title} className="w-full h-[5rem]" />
             </div>

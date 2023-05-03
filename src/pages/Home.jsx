@@ -12,10 +12,10 @@ import {useSelector} from 'react-redux'
 
 
 
-const Home = ({cate}) => {
+const Home = () => {
 
     const [current,setCurrent] = useState(2)
-    const {products} = useSelector(state => state.prod)
+    const {products,cate} = useSelector(state => state.prod)
 
    
   return (
@@ -107,7 +107,7 @@ const Home = ({cate}) => {
 
         <div className="w-full px-8 md:px-14 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mb-8 items-start gap-4 mt-12 gap-y-20">
         {products?.slice(2,8).map((product) => (
-            <Card product={product}  />
+            <Card key={product.id} product={product}  />
         ))}
 
 

@@ -6,13 +6,17 @@ import { cartReducer } from './cartSlice';
 
 const productSlice = createSlice({
     name:'product',
-    initialState:{products:[],loading:false,error:null,product:null },
+    initialState:{products:[],loading:false,error:null,product:null,cate:null },
     reducers:{
         allProductsRequest(state, action){
             state.loading =true
         },
         ProductsSuccess(state, action){
             state.products = action.payload
+            state.loading =false
+        },
+        Category(state, action){
+            state.cate = action.payload
             state.loading =false
         },
         ProductsFail(state, action){

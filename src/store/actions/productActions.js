@@ -34,6 +34,14 @@ export const getProducts = () =>
 }
 
 
+export const getCategory =(data)=>{
+    return dispatch=>{
+        dispatch(productAction.allProductsRequest())
+        dispatch(productAction.Category(data))
+    }
+}
+
+
 export const getDetails = (id) =>
     async dispatch =>{
         try{
