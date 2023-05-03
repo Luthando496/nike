@@ -128,10 +128,25 @@ const Home = () => {
       // install Swiper modules
       modules={[Navigation, Pagination, Scrollbar, A11y]}
       spaceBetween={20}
-      slidesPerView={3}
-    //   navigation
-    //   pagination={{ clickable: true }}
-    //   scrollbar={{ draggable: true }}
+      navigation
+      scrollbar={{ draggable: true }}
+    //   slidesPerView={3}
+      breakpoints={{
+    // when window width is >= 640px
+    640: {
+      width: 640,
+      slidesPerView: 1,
+    },
+    // when window width is >= 768px
+    768: {
+      width: 768,
+      slidesPerView: 2,
+    },
+    968: {
+      width: 768,
+      slidesPerView: 2,
+    },
+  }}
       onSwiper={(swiper) => console.log(swiper)}
       onSlideChange={() => console.log('slide change')}
     >
