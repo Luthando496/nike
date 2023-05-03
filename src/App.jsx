@@ -17,6 +17,9 @@ import {collection, getDocs } from 'firebase/firestore';
 import { db } from './firebase'
 import {useDispatch} from 'react-redux'
 import {getProducts,getCategory} from './store/actions/productActions.js'
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 
 
@@ -48,10 +51,13 @@ function App() {
 
   return (
     <>
+    <ToastContainer
+      position="top-center"
+      autoClose={2000} 
+      />
     <Suspense fallback={<div className='w-full h-[60vh] flex justify-center items-center'><Vortex visible={true}
         height="400"
         width="400"
-
         ariaLabel="vortex-loading"
         wrapperStyle={{}}
         wrapperClass="vortex-wrapper"

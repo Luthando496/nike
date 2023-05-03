@@ -9,6 +9,8 @@ import { getDetails } from '../store/actions/productActions';
 import Card from '../components/Card';
 import SecondCard from '../components/SecondCard';
 import { addToCart } from '../store/actions/cartActions';
+import { toast } from 'react-toastify';
+
 
 
 
@@ -22,6 +24,7 @@ const Product = () => {
 
     const Cart = (product) => {
         dispatch(addToCart(product))
+        toast.success('Added to cart')
     }
 
 
