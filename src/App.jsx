@@ -11,6 +11,7 @@ import {Vortex} from 'react-loader-spinner'
 // import 'swiper/core/transition/transitionEmit'
 import {Routes,Route} from 'react-router-dom'
 const Cart = lazy(()=>import('./pages/Cart'))
+const About = lazy(()=>import('./pages/About'))
 const Category = lazy(()=>import('./pages/Category'))
 import axios from 'axios'
 import {collection, getDocs } from 'firebase/firestore';
@@ -67,6 +68,7 @@ function App() {
       <Navbar />
       <Routes >
         <Route path="/" element={<Home   />} />
+        <Route path="/about" element={<About   />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/category/:id" element={<Category />} />
         <Route path="/product/:id" element={<Product />} />

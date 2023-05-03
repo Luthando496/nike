@@ -25,7 +25,7 @@ const Navbar = () => {
     <SiNike  className="text-[4rem] cursor-pointer font-bold text-amber-700 tracking-[2px]" />
     </Link>
 
-    <ul className="hidden gap-8 items-center md:flex">
+    <ul className="hidden gap-12 items-center md:flex">
         <li>
             <Link to="/" className="text-amber-800 text-xl capitalize">Home</Link>
         </li>
@@ -48,9 +48,6 @@ const Navbar = () => {
             </li>
 
             </ul>}
-        </li>
-        <li>
-            <Link to="/" className="text-amber-800 text-xl font-rail capitalize">Contact</Link>
         </li>
     </ul>
 
@@ -102,9 +99,6 @@ const Navbar = () => {
         </li>
         <li className="pl-8 py-4 border">
             <a href="#" className="text-xl text-black font-semibold capitalize">about</a>
-        </li>
-        <li className="pl-8 py-4 border-b">
-            <a href="#" className="text-xl text-black font-semibold capitalize">contact</a>
         </li>
     </ul>
 
