@@ -17,6 +17,8 @@ const Home = () => {
     const [current,setCurrent] = useState(2)
     const {products,cate} = useSelector(state => state.prod)
 
+    console.log(cate)
+
    
   return (
     <>
@@ -165,7 +167,7 @@ const Home = () => {
         <section className="w-full my-10 grid grid-cols-1 lg:grid-cols-2 collections h-[80vh]">
 
         <div className="w-full border group border-black relative overflow-hidden  h-[50vh] lg:h-full">
-            <img src={cate[0]?.categories?.man} alt="man" className="w-full group-hover:scale-150 duration-300 h-full object-cover" />
+            <img src={cate && cate[0]?.categories?.man} alt="man" className="w-full group-hover:scale-150 duration-300 h-full object-cover" />
             <div className="absolute top-0 left-0 w-full h-full bg-amber-400/20"></div>
             <div className="absolute top-0 left-0 inner w-[90%] h-[90%] mx-auto border-white border flex items-center justify-center">
             <div className="space-y-8 text-center">
@@ -179,7 +181,7 @@ const Home = () => {
 
 
         <div className="w-full relative group overflow-hidden  border border-black h-[50vh] lg:h-full">
-            <img src={cate[0]?.categories?.woman} alt="man" className="w-full group-hover:scale-150 duration-300 h-full object-cover " />
+            <img src={cate && cate[0]?.categories?.woman} alt="man" className="w-full group-hover:scale-150 duration-300 h-full object-cover " />
             <div className="absolute top-0 left-0 w-full h-full bg-amber-400/20"></div>
             <div className="absolute top-0 left-0 inner w-[90%] h-[90%] mx-auto border-white border flex items-center justify-center">
             <div className="space-y-8 text-center">
