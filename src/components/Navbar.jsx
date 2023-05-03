@@ -92,13 +92,13 @@ const Navbar = () => {
     <div className={`md:hidden z-50 absolute top-[4.5rem] left-0 w-full h-screen  duration-700 bg-white ${show ? 'translate-x-0' : '-translate-x-[100%]'}`}>
     <ul className="flex flex-col">
         <li className="pl-8  border py-4">
-            <a href="#" className="text-xl text-black font-semibold capitalize">home</a>
+            <Link to="/" className="text-xl text-black font-semibold capitalize">home</Link>
         </li>
-        <li className=" py-4 ">
+        {/* <li className=" py-4 ">
             <a href="#" className="text-xl  pl-8 text-black font-semibold capitalize">Categories</a>
-        </li>
+        </li> */}
         <li className="pl-8 py-4 border">
-            <a href="#" className="text-xl text-black font-semibold capitalize">about</a>
+            <Link to="/about" className="text-xl text-black font-semibold capitalize">about</Link>
         </li>
     </ul>
 
