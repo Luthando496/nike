@@ -1,4 +1,5 @@
 import {configureStore,createSlice} from '@reduxjs/toolkit';
+import { cartReducer } from './cartSlice';
 
 
 
@@ -45,6 +46,7 @@ export const productAction = productSlice.actions
 const store = configureStore({
     reducer:{
         prod:productSlice.reducer,
+        cart:cartReducer
 
     }
 })

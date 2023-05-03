@@ -5,6 +5,7 @@ import {RxHamburgerMenu} from 'react-icons/rx'
 import {IoIosArrowDown,IoIosArrowUp} from 'react-icons/io'
 import {BsCart3} from 'react-icons/bs'
 import {Link} from 'react-router-dom'
+import { useSelector } from 'react-redux'
 
 
 
@@ -14,6 +15,7 @@ const Navbar = () => {
     const [show,setShow] = useState(false);
     const [cate,setCate]= useState(false);
     const [cart,setCart]= useState(false);
+    const {products} = useSelector(state => state.cart);
 
   return (
     <nav className='w-full bg-white py-4 relative shadow-xl'>
@@ -36,10 +38,10 @@ const Navbar = () => {
 
            {cate && <ul className="w-[300px] z-50 cate-show bg-black shadow-2xl rounded-xl absolute top-7 flex flex-col">
             <li className='hover:bg-white group px-2 rounded-lg text-center py-5 duration-300'>
-                <Link to="/category/men" className="group-hover:text-black duration-500  text-white text-md text-xl  tracking-[2px]   capitalize">Men</Link>
+                <Link to="/category/man" className="group-hover:text-black duration-500  text-white text-md text-xl  tracking-[2px]   capitalize">Men</Link>
             </li>
             <li className='hover:bg-white group px-2 rounded-lg text-center py-5 duration-300'>
-                <Link to="/women" className="group-hover:text-black  duration-500  text-white text-xl  tracking-[2px] text-md  capitalize">Women</Link>
+                <Link to="/category/women" className="group-hover:text-black  duration-500  text-white text-xl  tracking-[2px] text-md  capitalize">Women</Link>
             </li>
             <li className='hover:bg-white group px-2 rounded-lg text-center py-5 duration-300'>
                 <Link to="/category/sneakers" className="group-hover:text-black duration-500  text-white text-xl  tracking-[2px] text-md  capitalize">Sneakers</Link>
@@ -55,48 +57,24 @@ const Navbar = () => {
     <ul className="flex gap-2 items-center">
         <li className="px-4 relative cursor-pointer" onClick={() => setCart(!cart)} >
             <BsCart3 size={30} className='text-amber-600' />
+            <span className="absolute -bottom-[10px] bg-red-500 rounded-full -right-1 text-white  px-2 py-1">{products?.length}</span>
 
             {cart && <div className="absolute z-50 top-14 border -left-[12rem] space-y-2 bg-white border-black p-2 ">
 
             {/* card */}
+            {products?.map(product => (
             <div className="grid border-b border-red-900  grid-cols-3 gap-2 items-center pb-6">
             <div className="img w-full">
-                <img src="/assets/9a507157c35dedda9f7ebb284e3efdb1.jpg" alt="haha" className="w-full h-[5rem]" />
+                <img src={product.image} alt={product.title} className="w-full h-[5rem]" />
             </div>
             <div className="">
-                <h3 className="text-sm text-center text-black">Blue Hats</h3>
+                <h3 className="text-sm text-center text-black">{product.title}</h3>
             </div>
             <button className="">
                 X
             </button>
             </div>
-            {/*  */}
-            {/* card */}
-            <div className="grid border-b border-red-900  grid-cols-3 gap-2 items-center pb-6">
-            <div className="img w-full">
-                <img src="/assets/d3a42abd8cfba19b4ce59563f70dc296.jpg" alt="haha" className="w-full h-[5rem]" />
-            </div>
-            <div className="">
-                <h3 className="text-sm text-center text-black">Blue Hats</h3>
-            </div>
-            <button className="">
-                X
-            </button>
-            </div>
-            {/*  */}
-            {/* card */}
-            <div className="grid grid-cols-3 gap-2 items-center pb-6">
-            <div className="img w-full">
-                <img src="/assets/660b01291806f097898ca69d669106c6.jpg" alt="haha" className="w-full h-[5rem]" />
-            </div>
-            <div className="">
-                <h3 className="text-sm text-center text-black">Blue Hats</h3>
-            </div>
-            <button className="">
-                X
-            </button>
-            </div>
-            {/*  */}
+            ))}
 
             <Link to='/cart'  className="w-full block text-center py-4 hover:bg-white hover:border-black hover:border duration-500 hover:text-black bg-black text-white uppercase text-md font-rail">Proceed To Checkout</Link>
 

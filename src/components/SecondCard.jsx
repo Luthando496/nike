@@ -1,9 +1,9 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
 
-const Card = ({product}) => {
+const SecondCard = ({product}) => {
   return (
-    <Link  to={`/product/${product.id}`} className="card w-full border border-black p-4 hover:-translate-y-8 duration-300 cursor-pointer mt-0">
+    <Link  to={`/product/${product.id}`} className="card w-full p-4 hover:-translate-y-8 duration-300 cursor-pointer mt-0">
                 <div className="img w-full h-[286px]">
                     <img src={product?.image} alt="image-store" className="w-full h-full object-cover" />
                 </div>
@@ -18,4 +18,4 @@ const Card = ({product}) => {
   )
 }
 
-export default Card
+export default SecondCard

@@ -1,9 +1,25 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
+import {useSelector,useDispatch} from 'react-redux'
 import {FaTrash,FaTrashRestore} from 'react-icons/fa'
+import { RemoveItem } from '../store/actions/cartActions'
 
 
 const Cart = () => {
+
+    const {products,total} = useSelector(state => state.cart)
+    const dispatch = useDispatch()
+
+    let USDollar = new Intl.NumberFormat('en-US', {
+        style: 'currency',
+        currency: 'ZAR',
+    });
+
+    const CartRemove =(id)=> {
+        dispatch(RemoveItem(id))
+    }
+
+
   return (
     <>
         <section className="py-10 px-14 bg-slate-300/50 flex gap-4">
@@ -17,82 +33,27 @@ const Cart = () => {
             {/* left */}
             <div className="col-span-1 lg:col-span-2  self-start   w-full py-3">
             {/* card start*/}
+            {products?.map(product => (
             <div className="grid grid-cols-4 border-b border-b-gray-400 my-8 md:px-8 pb-6">
                 {/* left image */}
                 <div className="col-span-1">
-                <img src="/assets/420827d5c8fb0b2b05cb1175e74e1263.jpg" alt="image" className="w-[90px] md:w-[120px] h-[90px] lg:h-[120px]" />
+                <img src={product.image} alt={product.title} className="w-[90px] md:w-[120px] h-[90px] lg:h-[120px]" />
                 </div>
                 <div className="col-span-2 flex flex-col self-center">
-                    <h3 className="text-[14px] md:text-md  text-gray-600 capitalize tracking-[2px]">Air Jordan 1 Mid SE Craft</h3>
+                    <h3 className="text-[14px] md:text-md  text-gray-600 capitalize tracking-[2px]">{product.title}</h3>
                     
                 </div>
                 <div className="col-span-1 flex flex-col gap-8 items-center self-center">
-                <span className="text-[13px] lg:text-xl text-gray-600">Price : R2890.00</span>
+                <span className="text-[13px] lg:text-xl text-gray-600">Price : {USDollar.format(product.price)}</span>
 
                     <button className="">
-                        <FaTrashRestore  className='text-red-500 text-[17px] md:text-md  lg:text-2xl' />
+                        <FaTrashRestore onClick={() => CartRemove(product.id)}  className='text-red-500 text-[17px] md:text-md  lg:text-2xl' />
                     </button>
                 </div>
             </div>
-            {/* card ending */}
-             {/* card start*/}
-             <div className="grid grid-cols-4 border-b border-b-gray-400 my-8 md:px-8 pb-6">
-                {/* left image */}
-                <div className="col-span-1">
-                <img src="/assets/6f01c6f494292ec1dfad1933b4b21067.jpg" alt="image" className="w-[90px] md:w-[120px] h-[90px] lg:h-[120px]" />
-                </div>
-                <div className="col-span-2 flex flex-col self-center">
-                    <h3 className="text-[14px] md:text-md  text-gray-600 capitalize tracking-[2px]">Air Jordan 1 Mid SE Craft</h3>
-                    
-                </div>
-                <div className="col-span-1 flex flex-col gap-8 items-center self-center">
-                <span className="text-[13px] lg:text-xl text-gray-600">Price : R2890.00</span>
 
-                    <button className="">
-                        <FaTrashRestore  className='text-red-500 text-[17px] md:text-md  lg:text-2xl' />
-                    </button>
-                </div>
-            </div>
+            ))}
             {/* card ending */}
-             {/* card start*/}
-             <div className="grid grid-cols-4 border-b border-b-gray-400 my-8 md:px-8 pb-6">
-                {/* left image */}
-                <div className="col-span-1">
-                <img src="/assets/5558952c93aa69d36cb336870b0a41a9.jpg" alt="image" className="w-[90px] md:w-[120px] h-[90px] lg:h-[120px]" />
-                </div>
-                <div className="col-span-2 flex flex-col self-center">
-                    <h3 className="text-[14px] md:text-md  text-gray-600 capitalize tracking-[2px]">Air Jordan 1 Mid SE Craft</h3>
-                    
-                </div>
-                <div className="col-span-1 flex flex-col gap-8 items-center self-center">
-                <span className="text-[13px] lg:text-xl text-gray-600">Price : R2890.00</span>
-
-                    <button className="">
-                        <FaTrashRestore  className='text-red-500 text-[17px] md:text-md  lg:text-2xl' />
-                    </button>
-                </div>
-            </div>
-            {/* card ending */}
-            {/* card start*/}
-            <div className="grid grid-cols-4 border-b border-b-gray-400 my-8 md:px-8 pb-6">
-                {/* left image */}
-                <div className="col-span-1">
-                <img src="/assets/eb831d86066ca3865b4a2b42c14db651.jpg" alt="image" className="w-[90px] md:w-[120px] h-[90px] lg:h-[120px]" />
-                </div>
-                <div className="col-span-2 flex flex-col self-center">
-                    <h3 className="text-[14px] md:text-md  text-gray-600 capitalize tracking-[2px]">Air Jordan 1 Mid SE Craft</h3>
-                    
-                </div>
-                <div className="col-span-1 flex flex-col gap-8 items-center self-center">
-                <span className="text-[13px] lg:text-xl text-gray-600">Price : R2890.00</span>
-
-                    <button className="">
-                        <FaTrashRestore  className='text-red-500 text-[17px] md:text-md  lg:text-2xl' />
-                    </button>
-                </div>
-            </div>
-            {/* card ending */}
-
             </div>
 
             {/* right */}
@@ -100,7 +61,7 @@ const Cart = () => {
             <div className="flex justify-between">
                 <h3 className="text-slate-800 uppercase font-semibold text-xl">Subtotal</h3>
 
-                <h3 className="text-slate-800 uppercase font-semibold text-xl">ZAR 3000</h3>
+                <h3 className="text-slate-800 uppercase font-semibold text-xl">ZAR {USDollar.format(total)}</h3>
             </div>
                 <div className="w-full bg-gray-400 h-[1px] my-4"></div>
                 <p className="text-md font-rail leading-relaxed font-thin text-black">The subtotal reflects the total price of your order, including duties and taxes, before any applicable discounts. It does not include delivery costs and international transaction fees.</p>

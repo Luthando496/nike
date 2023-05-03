@@ -106,7 +106,7 @@ const Home = ({cate}) => {
         </div>
 
         <div className="w-full px-8 md:px-14 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mb-8 items-start gap-4 mt-12 gap-y-20">
-        {products?.map((product) => (
+        {products?.slice(2,8).map((product) => (
             <Card product={product}  />
         ))}
 
