@@ -29,7 +29,7 @@ const Home = () => {
                 infiniteLoop={true}
                 showThumbs={false}
                 showIndicators={false}
-                axis='vertical'
+                // axis='vertical'
                 showStatus={false}
                 renderArrowPrev={(clickHandler, hasPrev) => (
                     <div
