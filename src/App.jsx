@@ -28,9 +28,6 @@ import 'react-toastify/dist/ReactToastify.css';
 function App() {
   const dispatch = useDispatch()
 
-  // console.log(JSON.stringify(import.meta.env.VITE_REACT_APP_API_TOKEN).replace(/"/g, ''))
-
-
  const fetchCategory =  async()=> {
   const citiesCol = collection(db, 'category');
   const citySnapshot = await getDocs(citiesCol);
@@ -46,6 +43,7 @@ function App() {
     fetchCategory()
     dispatch(getProducts())
   },[dispatch])
+
 
   return (
     <>

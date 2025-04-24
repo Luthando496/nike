@@ -68,13 +68,13 @@ const Product = () => {
                 thumbWidth={60}
                 className="productCarousel"
             >
-                {product?.images?.map((img,index) => (
+                {/* {product?.images?.map((img,index) => ( */}
                     <img
-                        key={index}
-                        src={img?.url}
+                        key={product?.id}
+                        src={product?.image}
                         alt={'image-name'}
                     />
-                ))}
+                {/* ))} */}
 
             </Slider>
         </div>

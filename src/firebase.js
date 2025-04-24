@@ -6,13 +6,12 @@ import { getFirestore, collection, getDoc } from 'firebase/firestore';
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyB4rEbbVoBG8BptqLiE5rgsn_Xs3zxpKOY",
-  authDomain: "shopi-62702.firebaseapp.com",
-  databaseURL: "https://shopi-62702-default-rtdb.firebaseio.com",
-  projectId: "shopi-62702",
-  storageBucket: "shopi-62702.appspot.com",
-  messagingSenderId: "1096598830786",
-  appId: "1:1096598830786:web:7d2d96705164c7b5a8855b"
+  apiKey: "AIzaSyBCTjxgcFA4bWt3qPJ3VQRzMXr4dfrJcRY",
+  authDomain: "nike-bb0d8.firebaseapp.com",
+  projectId: "nike-bb0d8",
+  storageBucket: "nike-bb0d8.firebasestorage.app",
+  messagingSenderId: "458205308142",
+  appId: "1:458205308142:web:281612701817ef51b47fff"
 };
 
 // Initialize Firebase

@@ -49,7 +49,7 @@ const Navbar = () => {
 
            {cate && <ul className="w-[300px] z-50 cate-show bg-black shadow-2xl rounded-xl absolute top-7 flex flex-col">
             <li className='hover:bg-white group px-2 rounded-lg text-center py-5 duration-300'>
-                <Link to="/category/man" className="group-hover:text-black duration-500  text-white text-md text-xl  tracking-[2px]   capitalize">Men</Link>
+                <Link to="/category/men" className="group-hover:text-black duration-500  text-white text-md text-xl  tracking-[2px]   capitalize">Men</Link>
             </li>
             <li className='hover:bg-white group px-2 rounded-lg text-center py-5 duration-300'>
                 <Link to="/category/women" className="group-hover:text-black  duration-500  text-white text-xl  tracking-[2px] text-md  capitalize">Women</Link>

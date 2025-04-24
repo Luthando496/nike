@@ -13,7 +13,7 @@ export const getProducts = () =>
             dispatch(productAction.allProductsRequest())
             
             
-                  const citiesCol = collection(db, 'collection');
+                  const citiesCol = collection(db, 'clothes');
                   const citySnapshot = await getDocs(citiesCol);
             
                   console.log(citySnapshot.docs.map(doc => doc.data()))
@@ -49,7 +49,7 @@ export const getDetails = (id) =>
             dispatch(productAction.allProductsRequest())
 
             
-                const docRef =  doc(db, "collection", `${id}`);
+                const docRef =  doc(db, "clothes", `${id}`);
                 const docSnap = await getDoc(docRef);
 
                 if (docSnap.exists()) {

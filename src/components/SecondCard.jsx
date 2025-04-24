@@ -8,10 +8,10 @@ const SecondCard = ({product}) => {
                     <img src={product?.image} alt="image-store" className="w-full h-full object-cover" />
                 </div>
                 <div className="body  pl-6 mt-8">
-                <h2 className="text-semibold text-black text-xl">{product?.title}</h2>
+                <h2 className="text-semibold text-black text-xl">{product?.name}</h2>
                 <div className="flex justify-between mt-4">
-                    <span className="text-xl font-bold text-gray-400">R{product?.price}</span>
-                    <span className="text-xl font-bold text-green-300">{product?.percent}% off</span>
+                    <span className="text-xl font-bold text-gray-700">R{product?.price}</span>
+                    <span className="text-xl font-bold text-green-700">{product?.percent}% off</span>
                 </div>
                 </div>
     </Link>

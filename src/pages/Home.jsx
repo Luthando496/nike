@@ -5,7 +5,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { Carousel } from "react-responsive-carousel";
-import {Link} from 'react-router-dom'
+// import {Link} from 'react-router-dom'
 import { BiArrowBack } from "react-icons/bi";
 import Card from '../components/Card';
 import {useSelector} from 'react-redux'
@@ -14,12 +14,9 @@ import {useSelector} from 'react-redux'
 
 const Home = () => {
 
-    const [current,setCurrent] = useState(2)
+    // const [current,setCurrent] = useState(2)
     const {products,cate} = useSelector(state => state.prod)
 
-    console.log(cate)
-
-   
   return (
     <>
 
@@ -108,7 +105,7 @@ const Home = () => {
         </div>
 
         <div className="w-full px-8 md:px-14 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mb-8 items-start gap-4 mt-12 gap-y-20">
-        {products?.slice(2,8).map((product) => (
+        {products?.map((product) => (
             <Card key={product.id} product={product}  />
         ))}
 
